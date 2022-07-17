@@ -30,8 +30,7 @@
 }
 
 .automata-doc {
-  margin-top: 40px;
-  padding: 58px 0 77px;
+  padding: 38px 0 47px;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #ccc;
@@ -72,7 +71,7 @@ input#docpicker {
 }
 
 .automata-doc .automata-btn {
-  padding: 20px 0;
+  padding: 10px 0;
   margin: 20px;
   display: flex;
   justify-content: space-evenly;
@@ -149,12 +148,12 @@ input#docpicker {
 }
 
 .automata-wording {
-  padding-top: 78px;
+  padding-top: 28px;
   text-align: center;
 }
 
 .automata-wording input#automata-word {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   border-radius: 20px;
   border: 0;
   padding: 5px 10px;
@@ -177,7 +176,7 @@ input#docpicker {
   border-radius: 5px;
   padding: 10px 20px;
   text-align: center;
-  margin: 32px auto 0;
+  margin: 22px auto 0;
   width: 200px;
   text-transform: uppercase;
   font-size: 20px;
@@ -186,7 +185,7 @@ input#docpicker {
 }
 
 .automata-wording .automata-response.accepts-lfa {
-  margin: 0 auto;
+  margin: -10px auto 0;
   visibility: hidden;
 }
 .automata-wording .automata-response.accepts-lfa:after {
@@ -202,7 +201,7 @@ input#docpicker {
 }
 
 .automata-wording .automata-response.rejects-lfa {
-  margin: 0 auto;
+  margin: -10px auto 0;
   visibility: hidden;
 }
 
@@ -360,7 +359,7 @@ input#docpicker {
   }
 
   .automata-wording {
-    padding-top: 40px;
+    padding-top: 28px;
   }
   .automata-wording input#automata-word {
     margin-bottom: 50px;
