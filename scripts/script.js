@@ -1,5 +1,5 @@
 import data from '../../endpoints.json' assert {type: 'json'};
-import { displayTupla, acceptsWord, clearAcceptButton, loadingScreen } from './uxfunctions.js'
+import { displayTupla, acceptsWord, clearAcceptButton, loadingScreen, displayGraph } from './uxfunctions.js'
 
 import { getCookie, setCookie } from './cookieHandler.js'
 
@@ -59,6 +59,7 @@ function sendXML(xml, option) {
         redirect: 'follow'
     };
     postReq(requestOptions, option);
+    getGraph(option);
 }
 
 async function postReq(requestOptions, option) {
@@ -69,6 +70,33 @@ async function postReq(requestOptions, option) {
         .catch(error => console.log('error', error));
     loadingScreen(false)
 }
+
+async function getGraph(option) {
+    loadingScreen(true);
+    let dotLanguageString;
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "text/plain");
+    myHeaders.append("Accept", "*/*");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    await fetch(`https://trabalho-lfa.herokuapp.com/${option}/getDot?uuid=${user_session}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {dotLanguageString = result})
+        .catch(error => console.log('error', error));
+
+    await fetch(`https://quickchart.io/graphviz?graph=${dotLanguageString}`, requestOptions)
+        .then(response => response.text())
+        .then(result => displayGraph(result))
+        .catch(error => console.log('error', error));
+
+    loadingScreen(false)
+}
+
 
 document.getElementById('automata-word').addEventListener('input', handleWordTyped)
 

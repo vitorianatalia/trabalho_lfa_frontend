@@ -28,6 +28,9 @@ export function displayTupla(tupla) {
   document.querySelector(".automata-tupla-box").innerHTML = tupla;
 }
 
+export function displayGraph(image) {
+  document.querySelector(".automata-graph-box").innerHTML = image;
+}
 
 export function acceptsWord(result, flag) {
     if (result == 'true') {
