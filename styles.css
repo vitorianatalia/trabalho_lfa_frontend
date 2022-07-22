@@ -44,6 +44,11 @@ input#docpicker {
   display: none;
 }
 
+span.hide{
+  visibility: hidden;
+  width:1px;
+}
+
 .automata-doc .docpicker-label {
   border-radius: 20px;
   padding: 5px 10px;

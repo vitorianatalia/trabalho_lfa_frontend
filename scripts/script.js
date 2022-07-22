@@ -1,4 +1,3 @@
-import data from '../../endpoints.json' assert {type: 'json'};
 import { displayTupla, acceptsWord, clearAcceptButton, loadingScreen, displayGraph } from './uxfunctions.js'
 
 import { getCookie, setCookie } from './cookieHandler.js'
@@ -17,7 +16,18 @@ let automataOption;
 function waitForTextReadComplete(reader) {
     reader.onloadend = function (event) {
         loadedFile = event.target.result;
-        document.querySelector(".docpicker-label").innerText = loadedFileName;
+        console.log("loaded")
+        var fnSpan = document.createElement("span");
+        fnSpan.innerText = loadedFileName;
+        if (document.querySelector('.filename')) {
+            document.querySelector('.filename').remove();
+            
+        }
+        fnSpan.classList.add("filename")
+        var select = document.querySelector(".docpicker-label")
+        select.appendChild(fnSpan);
+
+        document.querySelector('.docpicker-label span').classList.add('hide');
     }
 }
 
@@ -37,6 +47,7 @@ function handleSubmit() {
     if (document.querySelector('.btn-clicked'))
         automataOption = document.querySelector('.btn-clicked').innerText.toLowerCase();
     if (loadedFile && automataOption) {
+        document.querySelector('.error-warning').classList.add('hidden');
         sendXML(loadedFile, automataOption);
     }
     else {
