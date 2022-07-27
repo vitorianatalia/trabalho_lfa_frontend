@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+p {
+  font-size: 16px !important;
+}
+
 .container {
   display: flex;
   min-height: 100vh;
@@ -38,6 +42,11 @@
 
 input#docpicker {
   display: none;
+}
+
+span.hide{
+  visibility: hidden;
+  width:1px;
 }
 
 .automata-doc .docpicker-label {
@@ -245,6 +254,11 @@ input#docpicker {
 
 .right-column .automata-graph .automata-graph-box {
   height: auto;
+  display: flex;
+}
+
+.automata-graph-box svg {
+  margin: 0 auto;
 }
 
 .right-column .credits {
